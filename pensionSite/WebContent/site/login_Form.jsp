@@ -21,7 +21,9 @@
 <body>
 
 <div class="col-md-8 col-md-offset-2 loginDiv">
-	<table border="3" cellspacing="10" cellpadding="15" width="50%" align="center">
+
+	<h4 align="center">♥ 로그인 ♥</h4>
+	<table border="1" cellspacing="10" cellpadding="15" width="50%" align="center">
 		<tr>
 			<td colspan="8" align="center">
 				<!-- goto page는 로그인 이후에 이동할 페이지를 의미한다. -->

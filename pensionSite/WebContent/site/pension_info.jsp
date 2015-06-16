@@ -45,10 +45,6 @@
 							</dd>
 					</dl>
 				</div>
-				<p class="btn">
-					<a href="javascript:popupWin('/sub/new/box/?mid=photo_outside&amp;jpmt_id=1594','photo_outside','543','602');" class="btn_out_photo">
-					<img src="/images/new/sub/btn_morephoto.png" alt="외부사진보기" class="img1px"></a><a href="javascript:popupWin('/sub/new/box/?mid=room_cal_&amp;jpmt_id=1594','room_cal','680','600','auto');"><img src="/images/new/sub/btn_allroom.png" alt="전체 객실현황보기"></a>
-				</p>
 			</div>
 		</div>
 		
@@ -131,7 +127,6 @@
 		</table>
 </div>
 			
-			
 			</div>
 			</center>
 		
@@ -204,12 +199,16 @@
 		
 							</tbody>
 						</table>
+						
+				<form method="post" action="#.jsp?day_code"> <!-- 주소 수정 다시 -->
+					<input type="submit" value="예약하기" class="btn btn-default reservation_btn" style="width: 300px;">
+				</form>
+						
 					</center>
 			</div>
 		</div>
 
 </div>
-
 
 <%@ include file="pension_main_bottom.jsp"%>
 

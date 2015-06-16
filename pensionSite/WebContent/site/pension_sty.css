@@ -138,16 +138,6 @@ li {
 	margin-top: 60px;
 }
 
-
-.localBox {
-	width : 30%;
-	height : 500px;
-	border : 1px solid #c1c1c1;
-	background-color: #eee;
-	margin : 0px 10px 0px 10px;
-}
-
-
 .pensionInfo_Div{
 	margin-top: 20px;
 	padding: 20px;
@@ -229,7 +219,7 @@ li {
   border: 1px solid #dedede;
 }
 
-.join_btn, .login_btn {
+.join_btn, .login_btn{
 	width : 100px;
 	height : 40px;
 	border-color: #E68282;
@@ -250,4 +240,37 @@ li {
 .loginDiv td {
 	padding: 40px;
 }
+
+.loginDiv table{
+	margin-top:30px;
+	border-color: #dedede;
+}
+
+.local_list_Box li {
+  position: relative;
+  float: left;
+  margin: 35px 0 0 16px;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  
+}
+
+.pension_list_info{
+	padding: 30px;
+}
+
+.pensionInfo_info{
+	padding : 30px;
+}
+
+.reservation_btn {
+	width : 100px;
+	height : 40px;
+	border-color: #E68282;
+	background-color: #E68282;
+	color: #fff;
+	margin: 50px;
 }
