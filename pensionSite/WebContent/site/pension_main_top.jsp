@@ -60,6 +60,11 @@ oRollingBanner.addImg("C:/dev/workspace/pensionSite/WebContent/images/test2.jpg"
 oRollingBanner.start(3000);
 }
 
+/* 상단바 로그인 버튼 text 변경 
+로그인 해서 세션이 저장되면 로그인 text가 "회원이름" 로그아웃 으로 변경되게 구현하기. 
+ 세션이 null 이면 로그인 txt 세션이 존재하면 회원이름 로그아웃 으로 text 변경되는것
+ */
+
 </script>
 
 <body>
