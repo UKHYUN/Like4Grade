@@ -63,6 +63,82 @@
 					</div>
 				
 				</li>
+				
+				<!-- loop -->
+				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
+
+					<div class="pension_list_info" align="center">
+                    
+                	    <p><strong class="ps_name"> pension_name</strong></p>
+	                    <p>pay_code</p>
+						<p>thema_code</p>
+						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
+						
+						<div style="display:none">
+	                        <p>local_code<p>
+                        </div>
+						<!--  <p>like_code</p>  시간나면 구현 -->
+					</div>
+				
+				</li>
+				
+				<!-- loop -->
+				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
+
+					<div class="pension_list_info" align="center">
+                    
+                	    <p><strong class="ps_name"> pension_name</strong></p>
+	                    <p>pay_code</p>
+						<p>thema_code</p>
+						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
+						
+						<div style="display:none">
+	                        <p>local_code<p>
+                        </div>
+						<!--  <p>like_code</p>  시간나면 구현 -->
+					</div>
+				
+				</li>
+				
+				<!-- loop -->
+				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
+
+					<div class="pension_list_info" align="center">
+                    
+                	    <p><strong class="ps_name"> pension_name</strong></p>
+	                    <p>pay_code</p>
+						<p>thema_code</p>
+						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
+						
+						<div style="display:none">
+	                        <p>local_code<p>
+                        </div>
+						<!--  <p>like_code</p>  시간나면 구현 -->
+					</div>
+				
+				</li>
+				
+				<!-- loop -->
+				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
+
+					<div class="pension_list_info" align="center">
+                    
+                	    <p><strong class="ps_name"> pension_name</strong></p>
+	                    <p>pay_code</p>
+						<p>thema_code</p>
+						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
+						
+						<div style="display:none">
+	                        <p>local_code<p>
+                        </div>
+						<!--  <p>like_code</p>  시간나면 구현 -->
+					</div>
+				
+				</li>
 						
 				</ul>
 					

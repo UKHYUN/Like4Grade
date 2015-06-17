@@ -54,18 +54,22 @@ window.onload = function() {
 
 var oRollingBanner = new rollingBanner(document.getElementById("ban"));
 
-oRollingBanner.addImg("C:/dev/workspace/pensionSite/WebContent/images/heart.png");
+oRollingBanner.addImg("C:/Users/ybe/git/Like4Grade/pensionSite/WebContent/images/heart.png");
 oRollingBanner.addImg("C:/dev/workspace/pensionSite/WebContent/images/test1.jpg");
 oRollingBanner.addImg("C:/dev/workspace/pensionSite/WebContent/images/test2.jpg");
 oRollingBanner.start(3000);
 }
-
-/* 상단바 로그인 버튼 text 변경 
-로그인 해서 세션이 저장되면 로그인 text가 "회원이름" 로그아웃 으로 변경되게 구현하기. 
- 세션이 null 이면 로그인 txt 세션이 존재하면 회원이름 로그아웃 으로 text 변경되는것
- */
-
+ 
 </script>
+
+<%
+// 상단바 로그인 버튼 text 변경 
+// 로그인 해서 세션이 저장되면 로그인 text가 "회원이름" 로그아웃 으로 변경되게 구현.
+// 세션이 null 이면 로그인 txt 세션이 존재하면 회원이름 로그아웃 으로 text 변경되는것
+
+	String memberId = (String)session.getAttribute("loginfo");
+	boolean login = (memberId == null ? false : true);
+%>
 
 <body>
 
@@ -79,7 +83,13 @@ oRollingBanner.start(3000);
 				
 				<div>
 				<ul class="topbar_Menu_Sty navbar-nav navbar-right"> <!--nav honer 영역지정 뺌-->
+				<% if(login == true){ %>
+					<li><%=memberId%>님 ♥<a href="logout.jsp"><span class="topbar_Menu_box glyphicon glyphicon-log-in"></span> 로그아웃</a></li>
+				<% }
+					else { %>
 					<li><a href="login_Form.jsp"><span class="topbar_Menu_box glyphicon glyphicon-log-in"></span> 로그인</a></li>
+				<% } %>
+			
 					<li><a href="join_Form.jsp"><span class="topbar_Menu_box glyphicon glyphicon-user"></span> 회원가입</a></li>
 					<li><a href="#"><span class="topbar_Menu_box glyphicon glyphicon-th-list"></span> 예약확인/취소</a></li>
 				</ul>

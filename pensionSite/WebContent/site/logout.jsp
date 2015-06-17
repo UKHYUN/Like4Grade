@@ -7,7 +7,7 @@
 <% 
 	request.setCharacterEncoding("UTF-8"); 
 	session.invalidate() ;
-	response.sendRedirect("./Login_Form.jsp") ;
+	response.sendRedirect("./login_Form.jsp") ;
 %>
 <html>
 <head>
