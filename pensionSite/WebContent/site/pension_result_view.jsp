@@ -1,15 +1,21 @@
 <%@page import="pkg.pension.PensionTable"%>
 <%@page import="pkg.pension.PensionBean"%>
+
+<%@page import="java.util.ArrayList"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <% request.setCharacterEncoding("UTF-8") ; %>
 
 <%
-//	String id = request.getParameter("id") ;
-//	PensionBean dao = new PensionBean();	
-//	PensionTable pension = dao.getPensionByLocalCode( id ) ;
-//%>
+ // pension_area.jsp 에서 local_code(지역코드) 파라미터 받아와서 파라미터로 DB 불러오기
+	
+ 	String local_code = request.getParameter("local_code") ; // 파라미터 가져옴.
+	
+ 	PensionBean dao = new PensionBean();
+ 	ArrayList<PensionTable> pension_lists = dao.getPensionListByLocalCode(local_code); //지역코드로 펜션 객체 불러옴.
+%>
 
 <html>
 <head>
@@ -46,99 +52,28 @@
 				<ul class="local_list_Box">
 					
 			<!-- loop -->
-				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+<%
+	for(PensionTable list : pension_lists ){ //ArrayList<PensionTable> 자료형 일단 지움
+%>
+				<li onclick="goPage('./pension_info.jsp?<%=list.getPension_name()%>')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					
+					<!-- DB에서 사진 불러오는것 구현해야함 -->
 					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
 
 					<div class="pension_list_info" align="center">
                     
-                	    <p><strong class="ps_name"> pension_name</strong></p>
-	                    <p>pay_code</p>
-						<p>thema_code</p>
-						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
+                	    <p><strong class="ps_name"><%=list.getPension_name()%></strong></p>
+	                    <p><%=list.getPay_code()%></p>
+						<p><%=list.getThema_code()%></p>
 						
-						<div style="display:none">
-	                        <p>local_code<p>
-                        </div>
+						<!-- <div style="display:none">
+	                        <p>local_code<p> </div> 안보이게 하는 것 -->
 						<!--  <p>like_code</p>  시간나면 구현 -->
 					</div>
 				
 				</li>
 				
-				<!-- loop -->
-				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
-					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
-
-					<div class="pension_list_info" align="center">
-                    
-                	    <p><strong class="ps_name"> pension_name</strong></p>
-	                    <p>pay_code</p>
-						<p>thema_code</p>
-						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
-						
-						<div style="display:none">
-	                        <p>local_code<p>
-                        </div>
-						<!--  <p>like_code</p>  시간나면 구현 -->
-					</div>
-				
-				</li>
-				
-				<!-- loop -->
-				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
-					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
-
-					<div class="pension_list_info" align="center">
-                    
-                	    <p><strong class="ps_name"> pension_name</strong></p>
-	                    <p>pay_code</p>
-						<p>thema_code</p>
-						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
-						
-						<div style="display:none">
-	                        <p>local_code<p>
-                        </div>
-						<!--  <p>like_code</p>  시간나면 구현 -->
-					</div>
-				
-				</li>
-				
-				<!-- loop -->
-				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
-					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
-
-					<div class="pension_list_info" align="center">
-                    
-                	    <p><strong class="ps_name"> pension_name</strong></p>
-	                    <p>pay_code</p>
-						<p>thema_code</p>
-						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
-						
-						<div style="display:none">
-	                        <p>local_code<p>
-                        </div>
-						<!--  <p>like_code</p>  시간나면 구현 -->
-					</div>
-				
-				</li>
-				
-				<!-- loop -->
-				<li onclick="goPage('./pension_info.jsp?pension_name')"> <!-- .jsp?펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
-					<span><img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt=""></span>
-
-					<div class="pension_list_info" align="center">
-                    
-                	    <p><strong class="ps_name"> pension_name</strong></p>
-	                    <p>pay_code</p>
-						<p>thema_code</p>
-						<p><%=request.getParameter("local_code")%><p> <!-- 파라미터값 받아오는 것 -->
-						
-						<div style="display:none">
-	                        <p>local_code<p>
-                        </div>
-						<!--  <p>like_code</p>  시간나면 구현 -->
-					</div>
-				
-				</li>
+				<!--  for 문 여기까지 와야함 --> <% }%> 
 						
 				</ul>
 					

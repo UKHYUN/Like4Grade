@@ -84,10 +84,10 @@ public class PensionBean{
 	}
 	
 	// pension local code 별 list 불러오기
-		public ArrayList<PensionTable> getPensionListByLocalCode(){
+		public ArrayList<PensionTable> getPensionListByLocalCode(String local_code){
 			connect();
 			
-			ResultSet rs = null ;		
+			ResultSet rs = null ;
 			
 			String sql = " select * from PensionTable where local_code = ? ";
 			
@@ -101,8 +101,9 @@ public class PensionBean{
 					
 					PensionTable pension = new PensionTable() ;
 					
-					pension.setId(rs.getString("id")) ;
-					pension.setName(rs.getString("name")) ;
+					// DB 구현후 컬럼이름 수정하기.
+					pension.setPension_name(rs.getString("id")) ;
+					pension.setLocal_code(rs.getString("name")) ;
 					pension.setPassword(rs.getString("password")) ;					
 					pension.setHiredate(String.valueOf(rs.getDate("hiredate"))) ;
 					pension.setGender(rs.getString("gender")) ;				
