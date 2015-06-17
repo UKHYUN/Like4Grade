@@ -21,7 +21,7 @@
 			
 		<ul class="nav nav-pills nav-justified menuDiv">
 			<li class="active"><a href="pension_main.jsp">Home</a></li>
-			<li><a href="pension_area.jsp">지역별</a></li>
+			<li><a href="pension_area.jsp?">지역별</a></li>
 			<li><a href="pension_thema.jsp">테마별</a></li>
 			<li><a href="pension_tour.jsp">관광지별</a></li>
 		</ul>

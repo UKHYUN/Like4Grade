@@ -8,14 +8,19 @@
 
 <% request.setCharacterEncoding("UTF-8") ; %>
 
-<%
+<!--  
  // pension_area.jsp 에서 local_code(지역코드) 파라미터 받아와서 파라미터로 DB 불러오기
 	
- 	String local_code = request.getParameter("local_code") ; // 파라미터 가져옴.
+ 	String local_code = "null";
+ 	if(request.getParameter("local_code") == null){
+ 		local_code = "01";
+ 	}
+ 	else
+ 		local_code = request.getParameter("local_code") ; // 파라미터 가져옴.
 	
  	PensionBean dao = new PensionBean();
  	ArrayList<PensionTable> pension_lists = dao.getPensionListByLocalCode(local_code); //지역코드로 펜션 객체 불러옴.
-%>
+ -->
 
 <html>
 <head>

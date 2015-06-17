@@ -104,11 +104,11 @@ public class PensionBean{
 					// DB 구현후 컬럼이름 수정하기.
 					pension.setPension_name(rs.getString("id")) ;
 					pension.setLocal_code(rs.getString("name")) ;
-					pension.setPassword(rs.getString("password")) ;					
-					pension.setHiredate(String.valueOf(rs.getDate("hiredate"))) ;
-					pension.setGender(rs.getString("gender")) ;				
-					pension.setEmail1(rs.getString("email1")) ;
-					pension.setEmail2(rs.getString("email2")) ;
+//					pension.setPassword(rs.getString("password")) ;					
+//					pension.setHiredate(String.valueOf(rs.getDate("hiredate"))) ;
+//					pension.setGender(rs.getString("gender")) ;				
+//					pension.setEmail1(rs.getString("email1")) ;
+//					pension.setEmail2(rs.getString("email2")) ;
 					
 					lists.add(pension) ;
 				}
