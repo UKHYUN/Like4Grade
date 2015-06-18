@@ -1,6 +1,11 @@
 <%@page import="pkg.pension.PensionTable"%>
 <%@page import="pkg.pension.PensionBean"%>
 
+<%@page import="pkg.code.ThemaTable"%>
+<%@page import="pkg.code.LocalTable"%>
+<%@page import="pkg.code.CodeBean"%>
+
+
 <%@page import="java.util.ArrayList"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -16,11 +21,28 @@
  		local_code = "01";
  	}
  	else
- 		local_code = request.getParameter("local_code") ; // 파라미터 가져옴.
+ 		local_code = request.getParameter("thema_code") ; // 파라미터 가져옴.
+ 		
+ 		
+ 	String thema_code = "null";
+ 	 if(request.getParameter("thema_code") == null){
+ 		thema_code = "01";
+ 	}
+ 	else
+ 		thema_code = request.getParameter("thema_code") ; // 파라미터 가져옴.
 	
  	PensionBean dao = new PensionBean();
- 	PensionTable pension_lists = dao.getPensionInfoByLikeCode(local_code); //지역코드로 펜션 객체 불러옴.
+ 	PensionTable pension_like = dao.getPensionInfoByLikeCode(local_code); //지역코드로 펜션 number 불러옴. (선호도 맥스)
+ 	PensionTable pension_lists = dao.getPensionListByPensionNumber(pension_like.getPension_number());
+ 	
+ 	PensionTable pension_like2 = dao.getPensionInfoByLikeCode2(thema_code);
+ 	PensionTable pension_lists2 = dao.getPensionListByPensionNumber(pension_like2.getPension_number());
+ 	
+ 	CodeBean dao2 = new CodeBean();
+ 	
+ 	
  %>
+ 
 <html>
 <head>
   <title>Like 4grade</title>
@@ -48,29 +70,59 @@
 					<li role="presentation"><a href="pension_main.jsp?local_code=05">경상도</a></li>
 					<li role="presentation"><a href="pension_main.jsp?local_code=07">제주도</a></li>
 				</ul>
-
-				<div col-md-6 class="main_local_photo">
+				
+				<div class="col-md-6 main_local_photo">
+					<form action=pension_info.jsp method="post"> <!-- 펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					<input type="hidden" name="pension_name" value=<%=pension_lists.getPension_name() %> />
 					<span>
-					<img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="50%" height="250px" alt="">
-					</span>		
+					<img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt="">
+					</span>
 				</div>
-						
-				<div col-md-6 class="main_local_info">
-					<p><strong class="ps_name"><%= pension_lists.getPension_name() %></strong></p>
-					<p><%= pension_lists.getPay_code() %></p>
-					<p><%= pension_lists.getThema_code() %></p>
-						</div>
+				<div class="col-md-6 main_local_info">
+					<center>
+					<br>
+					<p><strong><%= pension_lists.getPension_name() %></strong></p>
+					<p>♥ 테마: <%= dao2.getThemaNameByThemaCode(pension_lists.getThema_code()).getThema_name() %></p>
+					<p>♥ 가격: <%= pension_lists.getPay()%>원</p>
+					<p>♥ 인원: <%= pension_lists.getRoom_user() %>명</p>
+					<p>♥ 선호도: <%= pension_lists.getLike_code() %></p>
+					<br>
+						<input type="submit" value="더보기" class="btn btn-default login_btn">
+					</form>
+					</center>
+				</div>
 			</div>
 			
 			<div class="col-md-5 favorBox">
-				<label>♥ 지역별 선호</label>
+				<label>♥ 테마별 선호</label>
 				<ul class="nav nav-tabs nav-justified">
-					<li role="presentation" class="active"><a href="#">스파 및 온천</a></li>
- 					<li role="presentation"><a href="#">캠핑&바베큐</a></li>
-					<li role="presentation"><a href="#">가족여행</a></li>
-					<li role="presentation"><a href="#">커플여행</a></li>
-					<li role="presentation"><a href="#">그외</a></li>
+					<li role="presentation" class="active"><a href="pension_main.jsp?thema_code=01">스파 및 온천</a></li>
+ 					<li role="presentation"><a href="pension_main.jsp?thema_code=02">캠핑&바베큐</a></li>
+					<li role="presentation"><a href="pension_main.jsp?thema_code=03">가족여행</a></li>
+					<li role="presentation"><a href="pension_main.jsp?thema_code=04">커플여행</a></li>
 				</ul>
+				
+				<div class="col-md-6 main_local_photo">
+					<form action=pension_info.jsp method="post"> <!-- 펜션이름 디비값 받아와서 info 페이지로 넘기기 -->
+					<input type="hidden" name="pension_name" value=<%=pension_lists2.getPension_name() %> />
+					<span>
+					<img src="http://image.wooripension.com/pension_images/w0101002/2014124162718.jpg" width="100%" height="250px" alt="">
+					</span>
+				</div>
+				<div class="col-md-6 main_local_info">
+					<center>
+					<br>
+					<p><strong><%= pension_lists2.getPension_name() %></strong></p>
+					<p>♥ 지역: <%= dao2.getLocalNameByLocalCode(pension_lists2.getLocal_code()).getLocal_name() %></p>
+					<p>♥ 가격: <%= pension_lists2.getPay()%>원</p>
+					<p>♥ 인원: <%= pension_lists2.getRoom_user() %>명</p>
+					<p>♥ 선호도: <%= pension_lists2.getLike_code() %></p>
+					<br>
+						<input type="submit" value="더보기" class="btn btn-default login_btn">
+					</form>
+					</center>
+				</div>
+				
 			</div>
 			</div>
 		</div>

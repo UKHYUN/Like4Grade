@@ -42,7 +42,7 @@ a {
 .search_select_sty {
 	border: 1px solid #b6c4d0;
  	color: #88969b;
-	width : 100px;
+	width : 110px;
 	height : 40px;
 }
 
@@ -189,11 +189,18 @@ li {
   color: #fff;
 }
 
-
 .section_pensionRoom{
 	padding: 50px;
+	margin-bottom: 25px;
 }
 
+.section_pensionRoom tr, .section_pensionRoom th,.section_pensionRoom td{
+	padding: 10px;
+	margin: 30px;
+	border: 1px solid #a0a0a0;
+	text-align: center;
+	
+}
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
   color: #646464;
@@ -271,7 +278,7 @@ li {
 	border-color: #E68282;
 	background-color: #E68282;
 	color: #fff;
-	margin: 50px;
+	margin: 100px;
 }
 
 .reservation_List_Table th{
@@ -291,4 +298,25 @@ li {
 
 .main_local_photo, .main_local_info{
 	padding-top : 50px;
+}
+
+.recommend_list {
+	width: 20%;
+	height: 200px;
+	border: 1px solid #dedede;
+	background: #f2f2f2;
+	color: #262626;
+	text-align: left;
+}
+
+.recommend_Div {
+	margin-left: 118px;
+}
+
+.search_margin{
+	margin-right: 15px;
+}
+
+.search_label_margin{
+	margin-right: 5px;
 }

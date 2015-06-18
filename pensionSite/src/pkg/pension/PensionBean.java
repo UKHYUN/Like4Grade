@@ -235,7 +235,7 @@ public class PensionBean{
 	public ArrayList<PensionTable> getPensionListBysearch(PensionTable pension){
 		connect();
 		
-		String sql = " select * from PensionTable where local_code = ?, pay_code = ?, room_user = ?";
+		String sql = " select * from pensiontable where local_code = ? AND thema_code = ? AND pay_code = ? AND room_user = ?";
 		// , stay_date = ? 두번째에 잠깐 뻈음
 		ResultSet rs = null ;
 		
@@ -244,9 +244,9 @@ public class PensionBean{
 		try {
 			pstmt = conn.prepareStatement( sql ) ;
 			pstmt.setString(1, pension.getLocal_code()) ;
-			//pstmt.setString(2, pension.getStay_date()) ;
-			pstmt.setString(2, pension.getPay_code()) ;
-			pstmt.setString(3, pension.getRoom_user()) ;
+			pstmt.setString(2, pension.getThema_code()) ;
+			pstmt.setString(3, pension.getPay_code()) ;
+			pstmt.setString(4, pension.getRoom_user()) ;
 			rs = pstmt.executeQuery() ;
 			
 			while( rs.next() ){
@@ -343,7 +343,7 @@ public class PensionBean{
 		public PensionTable getPensionInfoByLikeCode(String local_code){
 			connect();
 
-			String sql = " select * from PensionTable where pension_name = ?";
+			String sql = " select pension_number, MAX(like_code) from pensiontable where local_code = ?";
 			ResultSet rs = null;
 			PensionTable pension = null;
 
@@ -359,19 +359,7 @@ public class PensionBean{
 
 					// DB 구현후 컬럼이름 수정했음.
 					pension.setPension_number(rs.getString("pension_number"));
-					pension.setPension_name(rs.getString("pension_name"));
-					pension.setLocal_code(rs.getString("local_code"));
-					pension.setThema_code(rs.getString("thema_code"));
-					pension.setTour_code(rs.getString("tour_code"));
-
-					pension.setDay_code(rs.getString("day_code"));
-					pension.setPay_code(rs.getString("pay_code"));
-					pension.setRoom_user(rs.getString("room_user"));
-					pension.setPension_photo(rs.getString("pension_photo"));
-					pension.setLike_code(rs.getString("like_code"));
-
-					pension.setAddress_code(rs.getString("address_code"));
-					pension.setPhonenumber_code(rs.getString("phonenumber_code"));
+					pension.setLike_code(rs.getString("MAX(like_code)"));
 
 //				}
 			} catch (SQLException e) {
@@ -395,6 +383,51 @@ public class PensionBean{
 
 			return pension;
 		}
+		
+		// 가져온 thema_code 파라미터와 like_code로 DB 불러오기   *like code max값 가져오는거 다시 구현하기
+				public PensionTable getPensionInfoByLikeCode2(String thema_code){
+					connect();
+
+					String sql = " select pension_number, MAX(like_code) from pensiontable where thema_code = ?";
+					ResultSet rs = null;
+					PensionTable pension = null;
+
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, thema_code) ;
+						rs = pstmt.executeQuery();
+						
+//						while (rs.next()) {
+							rs.first();
+
+							pension = new PensionTable();
+
+							// DB 구현후 컬럼이름 수정했음.
+							pension.setPension_number(rs.getString("pension_number"));
+							pension.setLike_code(rs.getString("MAX(like_code)"));
+
+//						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (rs != null) {
+								rs.close();
+							}
+							if (pstmt != null) {
+								pstmt.close();
+							}
+							if (conn != null) {
+								conn.close();
+							}
+
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+
+					return pension;
+				}
 		
 		
 		// 가져온 pension_name 파라미터로 pension Number 불러오기
@@ -484,5 +517,63 @@ public class PensionBean{
 
 					return pension;
 				}
-	
+
+				
+				// 가져온 pension Number로  pension list불러오기
+				public PensionTable getPensionListByPensionNumber(String pension_number){
+					connect();
+
+					String sql = " select * from PensionTable where pension_number = '"+pension_number+"'";
+					ResultSet rs = null;
+					PensionTable pension = null;
+
+					try {
+						pstmt = conn.prepareStatement(sql);
+						rs = pstmt.executeQuery();
+						
+//						while (rs.next()) {
+							rs.first();
+
+							pension = new PensionTable();
+
+							// DB 구현후 컬럼이름 수정했음.
+							pension.setPension_number(rs.getString("pension_number")) ;
+							pension.setPension_name(rs.getString("pension_name")) ;
+							pension.setLocal_code(rs.getString("local_code")) ;
+							pension.setThema_code(rs.getString("thema_code")) ;
+							pension.setTour_code(rs.getString("tour_code")) ;
+							
+							pension.setDay_code(rs.getString("day_code")) ;
+							pension.setPay_code(rs.getString("pay_code")) ;
+							pension.setPay(rs.getString("pay")) ;
+							pension.setRoom_user(rs.getString("room_user")) ;
+							pension.setPension_photo(rs.getString("pension_photo")) ;
+							pension.setLike_code(rs.getString("like_code")) ;
+							
+							pension.setAddress_code(rs.getString("address_code")) ;
+							pension.setPhonenumber_code(rs.getString("phonenumber_code")) ;
+
+
+//						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (rs != null) {
+								rs.close();
+							}
+							if (pstmt != null) {
+								pstmt.close();
+							}
+							if (conn != null) {
+								conn.close();
+							}
+
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+
+					return pension;
+				}
 }

@@ -121,8 +121,8 @@ oRollingBanner.start(3000);
 		
 		<center>
         <div class="search_bar">
-                <label>지역검색</label>
-                <select name="local_code" id="local_code" class="dropdown search_select_sty" >
+                <label class="search_label_margin">지역검색</label>
+                <select name="local_code" id="local_code" class="dropdown search_select_sty search_margin" >
                 <option value='01'  selected='selected' >경기도</option>
                 <option value='02' >강원도</option>
                 <option value='03' >인천시</option>
@@ -134,24 +134,33 @@ oRollingBanner.start(3000);
             
                 </select>
 				
-				<label>입실날짜</label>  <!-- day_code랑 연결....해야돼.... -->
-					<input type="date" name="stay_date" id="stay_date" class="search_select_sty" style="width : 150px;">
-				<label>숙박일수</label>
+                <label class="search_label_margin">테마검색</label>
+                <select name="thema_code" id="thema_code" class="dropdown search_select_sty search_margin" >
+                <option value='01'  selected='selected' >스파&온천</option>
+                <option value='02' >워터파크</option>
+                <option value='03' >캠핑&바베큐</option>
+                <option value='04' >가족 여행</option>
+                <option value='05' >커플 여행</option>
+                <option value='06' >단체 여행</option>
+                </select>
+                
+				<label class="search_label_margin">입실날짜</label>  <!-- day_code랑 연결....해야돼.... -->
+					<input type="date" name="stay_date" id="stay_date" class="search_select_sty search_margin" style="width : 150px;">
+			<!-- <label>숙박일수</label>
 					<select name="stay_days" id="stay_days" class="dropdown search_select_sty" >
                         <option value="1">1박2일</option>
                         <option value="2">2박3일</option>
                         <option value="3">3박4일</option>
                         <option value="4">4박5일</option>
-                    </select>
+                    </select>  -->
 				<!--
                 <dd class="like_input">
                     <input type="text" value="2015-06-13" readonly="readonly" id="rersrm_date" name="rersrm_date" />
                     <input type="image" src="/woori_tobe/images/common/ico_calendar.gif" alt="날짜선택" id="rersrm_date_img" onclick="return false" />
 					-->
          
-                <label>가격선택</label>
-                    <select name="pay_code" id="pay_code" class="dropdown search_select_sty">
-                        <option value="0">가격전체</option>
+                <label class="search_label_margin">가격선택</label>
+                    <select name="pay_code" id="pay_code" class="dropdown search_select_sty search_margin">
                         <option value="10">~ 10만원</option>
                         <option value="15">~ 15만원</option>
                         <option value="20">~ 20만원</option>
@@ -159,8 +168,8 @@ oRollingBanner.start(3000);
                         <option value="99">30만원이상</option>
                     </select>
 				
-				<label>인원선택</label>
-                    <select name="room_user" id="room_user" class="dropdown search_select_sty" >
+				<label class="search_label_margin">인원선택</label>
+                    <select name="room_user" id="room_user" class="dropdown search_select_sty search_margin" >
                         <option value="2">2명</option>
                         <option value="3">3명</option>
                         <option value="4">4명</option>

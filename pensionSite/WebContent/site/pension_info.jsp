@@ -70,8 +70,8 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+	
 	<div class="col-md-12 section_pensionRoom">
 			<center>
 				<div id="useitem">
@@ -269,12 +269,27 @@
 					</center>
 			</div>
 			<center>
-			<form method="get" action="pension_reservation_control.jsp"> <!-- 주소 수정 다시 / 로그인상태 아니면 로그인창으로 가게 코딩-->
-					<input type="hidden" method="get" name="pension_name" value="<%=search_lists.getPension_name() %>" />
-					<input type="hidden" method="get" name="member_id" value="<%=session.getAttribute("loginfo")%>" />
-					<input type="submit" value="예약하기" class="btn btn-default reservation_btn" style="width: 300px;"/>
-			</form>
+				<form method="get" action="pension_reservation_control.jsp">
+					<!-- 주소 수정 다시 / 로그인상태 아니면 로그인창으로 가게 코딩-->
+					<input type="hidden" method="get" name="pension_name"
+						value="<%=search_lists.getPension_name() %>" /> <input
+						type="hidden" method="get" name="member_id"
+						value="<%=session.getAttribute("loginfo")%>" /> <input
+						type="submit" value="예약하기" class="btn btn-default reservation_btn"
+						style="width: 300px;" />
+				</form>
+
+				<div class="col-md-12 recommend_Div">
+					<div class="col-md-3 recommend_list"></div>
+					<div class="col-md-3 recommend_list"></div>
+					<div class="col-md-3 recommend_list"></div>
+					<div class="col-md-3 recommend_list"></div>
+				</div>
+					
 			</center>
+
+		</div>
+	
 		</div>
 
 </div>

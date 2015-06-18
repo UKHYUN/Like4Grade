@@ -8,6 +8,7 @@ public class PensionTable {  // 임시코드. DB 구현후 다시 수정하기.
 	private String thema_code ;
 	private String tour_code ;
 	
+	private String pay;
 	private String day_code ;
 	private String pay_code ;
 	private String room_user ;
@@ -46,6 +47,12 @@ public class PensionTable {  // 임시코드. DB 구현후 다시 수정하기.
 	}
 	public void setTour_code(String tour_code) {
 		this.tour_code = tour_code;
+	}
+	public String getPay() {
+		return pay;
+	}
+	public void setPay(String pay) {
+		this.pay = pay;
 	}
 	public String getDay_code() {
 		return day_code;
