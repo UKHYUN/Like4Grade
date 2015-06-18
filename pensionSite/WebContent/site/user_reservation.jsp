@@ -13,34 +13,18 @@
 
 <%@page import="java.util.ArrayList"%>
 
-<!-- 
-	PensionTable pension = null;
-	PensionBean dao = new PensionBean();
+<%
 	
-	pension = dao.getPensionNumberByPensionName(request.getParameter("pension_name"));
+	String member_id = request.getParameter("member_id");
+
+	ReservationBean dao = new ReservationBean();
+	//ArrayList<ReservationTable> reservation = dao.getReservatonListByMemberId(member_id);
+	ArrayList<ReservationTable> reservation = dao.getReservatonListByMemberId(new String(member_id.getBytes("8859_1"), "UTF-8"));
+	//pension_number = dao.getPensionNumberByPensionName(new String(pension_name.getBytes("8859_1"), "UTF-8"));
 	
-	//예약 정보 저장하기
-	ReservationTable reservation = new ReservationTable() ;
+	PensionBean dao2 = new PensionBean();
 
-	reservation.setMember_id( request.getParameter("member_id"));
-	reservation.setPension_number( pension.getPension_number() );
-
-	int cnt = -1 ;
-	
-	ReservationBean dao2 = new ReservationBean();
-	cnt = dao2.InsertReservation( reservation ) ;
-
-	String msg = "" ;
-	String url = "" ;
-
-	if(cnt != -1 ){
-		msg = "입력 성공" ;
-		url = "login_Form.jsp" ;
-	}else{
-		msg = "입력 실패" ;
-		url = "join_Form.jsp" ;
-	}
- -->
+%>
 
 <html>
 <head>
@@ -73,13 +57,19 @@
 				<th>예약취소</th>
 			</tr>
 			
+<%
+	for(ReservationTable list : reservation ){
+%>
 			<!-- memeber 예약현황 DB 불러와서 loop 구현하기 -->
 			<tr>
 				<td>06.18</td>
-				<td>코스모스펜션</td>
+				<td><%=dao2.getPensionNameByPensionNumber(list.getPension_number()).getPension_name() %></td>
 				<td>이용가능</td>
-				<td>btn</td>
+				<td>취소btn</td>
 			</tr>
+<%
+}
+%>
 	</table>
 </div>
 	

@@ -85,7 +85,7 @@ public class ReservationBean{
 		//멤버 빈 객체를 입력 받아서 DB에 데이터를 인서트 시킨다.
 		connect();
 		
-		String sql = " insert into reservationtable(member_id, pension_number) values(?, ?)" ; 
+		String sql = " insert into reservationtable value (?, ?, null, null);"; 
 		
 		int cnt = -1 ; 
 		
@@ -116,5 +116,36 @@ public class ReservationBean{
 		return cnt  ; //처리한 로우 개수 반환
 	}
 	
+	// member_id를 이용하여 reservation list 불러오기
+		public ArrayList<ReservationTable> getReservatonListByMemberId(String member_id){
+			connect();
+			
+			ResultSet rs = null ;		
+			
+			String sql = "select * from reservationtable where member_id ='"+ member_id+"'"; //db MemberTable 불러오기
+			
+			ArrayList<ReservationTable> lists = new ArrayList<ReservationTable>();
+			
+			try {
+				pstmt = conn.prepareStatement(sql) ;	
+				rs = pstmt.executeQuery() ;
+				
+				while( rs.next() ){
+					
+					ReservationTable reservation = new ReservationTable() ;
+					
+					reservation.setMember_id(rs.getString(1)) ;
+					reservation.setPension_number(rs.getString(2)) ;
+					lists.add(reservation) ;
+				}
+				
+			} catch (SQLException e) {			
+				e.printStackTrace();
+			} finally {
+				disconnect();
+			}
+			
+			return lists ;
+		}
 }
 	

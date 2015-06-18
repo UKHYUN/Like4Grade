@@ -24,7 +24,6 @@
 	
 %>
 
-
 <html>
 <head>
   <title>Like 4grade</title>
@@ -270,10 +269,10 @@
 					</center>
 			</div>
 			<center>
-			<form method="get" action="user_reservation.jsp"> <!-- 주소 수정 다시 / 로그인상태 아니면 로그인창으로 가게 코딩-->
-					<input type="hidden" method="get" name="pension_name" value="<%=search_lists.getPension_name() %>" >
-					<input type="hidden" method="get" name="member_id" value="<%= session.getAttribute("loginfo") %>" >
-					<input type="submit" value="예약하기" class="btn btn-default reservation_btn" style="width: 300px;">
+			<form method="get" action="pension_reservation_control.jsp"> <!-- 주소 수정 다시 / 로그인상태 아니면 로그인창으로 가게 코딩-->
+					<input type="hidden" method="get" name="pension_name" value="<%=search_lists.getPension_name() %>" />
+					<input type="hidden" method="get" name="member_id" value="<%=session.getAttribute("loginfo")%>" />
+					<input type="submit" value="예약하기" class="btn btn-default reservation_btn" style="width: 300px;"/>
 			</form>
 			</center>
 		</div>

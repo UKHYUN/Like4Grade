@@ -91,7 +91,7 @@ oRollingBanner.start(3000);
 				<% } %>
 			
 					<li><a href="join_Form.jsp"><span class="topbar_Menu_box glyphicon glyphicon-user"></span> 회원가입</a></li>
-					<li><a href="user_reservation.jsp"><span class="topbar_Menu_box glyphicon glyphicon-th-list"></span> 예약확인/취소</a></li>
+					<li><a href="user_reservation.jsp?member_id=<%=session.getAttribute("loginfo")%>"><span class="topbar_Menu_box glyphicon glyphicon-th-list"></span> 예약확인/취소</a></li>
 				</ul>
 				</div>
 			</div>

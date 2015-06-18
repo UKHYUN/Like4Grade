@@ -440,5 +440,49 @@ public class PensionBean{
 
 			return pension;
 		}
+		
+		
+		// 가져온 pension Number로  pension_name 불러오기
+				public PensionTable getPensionNameByPensionNumber(String pension_number){
+					connect();
+
+					String sql = " select pension_name from PensionTable where pension_number = '"+pension_number+"'";
+					ResultSet rs = null;
+					PensionTable pension = null;
+
+					try {
+						pstmt = conn.prepareStatement(sql);
+						rs = pstmt.executeQuery();
+						
+//						while (rs.next()) {
+							rs.first();
+
+							pension = new PensionTable();
+
+							// DB 구현후 컬럼이름 수정했음.
+							pension.setPension_name(rs.getString("pension_name"));
+
+//						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (rs != null) {
+								rs.close();
+							}
+							if (pstmt != null) {
+								pstmt.close();
+							}
+							if (conn != null) {
+								conn.close();
+							}
+
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+
+					return pension;
+				}
 	
 }
