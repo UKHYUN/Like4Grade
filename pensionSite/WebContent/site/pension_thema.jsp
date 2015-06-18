@@ -32,17 +32,17 @@
 		<div class="thema_section_tab">
 			<div class="thema_section_tab">
 				<ul>
-					<a href="/theme/?mid=sale&area=1"><li class="active"><span>스파 및 온천</span></li></a>
-					<a href="#"><li><span>워터 파크</span></li></a>
-					<a href="#"><li><span>캠핑&바베큐</span></li></a>
-					<a href="#"><li><span>가족 여행</span></li></a>
-					<a href="#"><li><span>커플 여행</span></li></a>
-					<a href="#"><li><span>단체 여행</span></li></a>
+					<a href="pension_thema.jsp?thema_code=01"><li class="active"><span>스파&온천</span></li></a>
+					<a href="pension_thema.jsp?thema_code=02"><li><span>워터 파크</span></li></a>
+					<a href="pension_thema.jsp?thema_code=03"><li><span>캠핑&바베큐</span></li></a>
+					<a href="pension_thema.jsp?thema_code=04"><li><span>가족 여행</span></li></a>
+					<a href="pension_thema.jsp?thema_code=05"><li><span>커플 여행</span></li></a>
+					<a href="pension_thema.jsp?thema_code=06"><li><span>단체 여행</span></li></a>
 				</ul>
 			</div>
 		</div>
 	
-<%@ include file="pension_result_view.jsp"%>
+<%@ include file="pension_thema_view.jsp"%>
 	
 	</div>
 

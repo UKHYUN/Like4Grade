@@ -54,7 +54,7 @@ window.onload = function() {
 
 var oRollingBanner = new rollingBanner(document.getElementById("ban"));
 
-oRollingBanner.addImg("C:/Users/ybe/git/Like4Grade/pensionSite/WebContent/images/heart.png");
+oRollingBanner.addImg("heart.png");
 oRollingBanner.addImg("C:/dev/workspace/pensionSite/WebContent/images/test1.jpg");
 oRollingBanner.addImg("C:/dev/workspace/pensionSite/WebContent/images/test2.jpg");
 oRollingBanner.start(3000);
@@ -91,7 +91,7 @@ oRollingBanner.start(3000);
 				<% } %>
 			
 					<li><a href="join_Form.jsp"><span class="topbar_Menu_box glyphicon glyphicon-user"></span> 회원가입</a></li>
-					<li><a href="#"><span class="topbar_Menu_box glyphicon glyphicon-th-list"></span> 예약확인/취소</a></li>
+					<li><a href="user_reservation.jsp"><span class="topbar_Menu_box glyphicon glyphicon-th-list"></span> 예약확인/취소</a></li>
 				</ul>
 				</div>
 			</div>
@@ -116,7 +116,7 @@ oRollingBanner.start(3000);
 
 <!-- 검색바  -->
 	<div class="col-md-8 col-md-offset-2 searchDiv">
-		<form id="form_search" action="#" method="get">
+		<form id="form_search" action="search_list.jsp" method="get"> <!-- action 쪽 꼭 다시 짚고가기 -->
 		<input type="hidden" />
 		
 		<center>
@@ -134,8 +134,8 @@ oRollingBanner.start(3000);
             
                 </select>
 				
-				<label>입실날짜</label>
-					<input type="date" name="stay_date" class="search_select_sty" style="width : 150px;">
+				<label>입실날짜</label>  <!-- day_code랑 연결....해야돼.... -->
+					<input type="date" name="stay_date" id="stay_date" class="search_select_sty" style="width : 150px;">
 				<label>숙박일수</label>
 					<select name="stay_days" id="stay_days" class="dropdown search_select_sty" >
                         <option value="1">1박2일</option>
@@ -170,7 +170,7 @@ oRollingBanner.start(3000);
                         <option value="15">15명</option>
                         <option value="30">30명</option>
                     </select>
-				<button type="button" class="btn btn-default search_btn_sty">검색</button>
+				<button type="submit" class="btn btn-default search_btn_sty">검색</button>
 		</div>
 		</center>
 		</form>

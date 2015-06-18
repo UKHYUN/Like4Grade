@@ -57,7 +57,7 @@
 			</div>
 		</div>
 	
-<%@ include file="pension_result_view.jsp"%>
+<%@ include file="pension_area_view.jsp"%>
 	
 	</div>
 </div>

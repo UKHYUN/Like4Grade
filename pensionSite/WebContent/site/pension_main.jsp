@@ -29,41 +29,8 @@
 	<!-- OnClick="this.class=active" -->
 	
 	<!-- 선호도 박스 -->
-	<div class="col-md-12 favorDiv">
-		<div class="col-md-12 favorInDiv">
-			<div class="col-md-5 favorBox">
- 				<label>♥ 지역별 선호</label>
-	 			<ul class="nav nav-tabs nav-justified">
-					<li role="presentation" class="active"><a href="#">경기도</a></li>
- 					<li role="presentation"><a href="#">강원도</a></li>
-					<li role="presentation"><a href="#">인천시</a></li>
-					<li role="presentation"><a href="#">제주도</a></li>
-					<li role="presentation"><a href="#">그외</a></li>
-				</ul>
-			</div>
-			
-			<div class="col-md-5 favorBox">
-				<label>♥ 지역별 선호</label>
-				<ul class="nav nav-tabs nav-justified">
-					<li role="presentation" class="active"><a href="#">스파 및 온천</a></li>
- 					<li role="presentation"><a href="#">캠핑&바베큐</a></li>
-					<li role="presentation"><a href="#">가족여행</a></li>
-					<li role="presentation"><a href="#">커플여행</a></li>
-					<li role="presentation"><a href="#">그외</a></li>
-				</ul>
-			</div>
-			</div>
-		</div>
+		<%@ include file="pension_main_box.jsp"%>
 		
-		<div class="col-md-12 favorInDiv">
-			<div class="col-md-6 favorBox">
-				관광지별 선호
-			</div>
-			
-			<div class="col-md-6 favorBox">
-				MD추천
-			</div>
-		</div>
 </div>
 
 

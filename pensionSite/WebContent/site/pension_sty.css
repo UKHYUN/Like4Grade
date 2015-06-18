@@ -254,12 +254,11 @@ li {
   height: 400px;
   background: #fff;
   border: 1px solid #dedede;
-  cursor: pointer;
   
 }
 
 .pension_list_info{
-	padding: 30px;
+	padding: 10px;
 }
 
 .pensionInfo_info{
@@ -273,4 +272,23 @@ li {
 	background-color: #E68282;
 	color: #fff;
 	margin: 50px;
+}
+
+.reservation_List_Table th{
+  padding: 7px 0 8px 20px;
+  height: 29px;
+  border: 1px solid #dedede;
+  background: #f2f2f2;
+  color: #262626;
+  text-align: left;
+}
+
+.reservation_List_Table td {
+  padding: 8px 20px 12px;
+  height: 24px;
+  border: 1px solid #dedede;
+}
+
+.main_local_photo, .main_local_info{
+	padding-top : 50px;
 }

@@ -16,7 +16,7 @@ public class MemberBean{
 	
 	// MySQL 연결정보
 	String jdbc_driver = "com.mysql.jdbc.Driver";
-	String jdbc_url = "jdbc:mysql://127.0.0.1:3306/jspdb";
+	String jdbc_url = "jdbc:mysql://127.0.0.1:3306/jsp_db";
 	
 	// DB 연결 메서드
 	void connect() {
